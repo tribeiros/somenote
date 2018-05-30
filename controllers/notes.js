@@ -4,6 +4,21 @@ module.exports = function(app){
     res.send('OK.');
   });
 
+// view all rows on notes databes
+  app.get('/notes/note/all', function(res,res){
+    const connection = app.persistencia.connectionFactory();
+    var queryString = 'SELECT * FROM notes';
+
+    connection.query(queryString, function(err, rows) {
+      if (err) throw err;
+
+      for (var i in rows) {
+        console.log('Id:', rows[i].id + ' ' + 'Title:', rows[i].title + ' ' + 'Content:', rows[i].content);
+      }
+    });
+    connection.end()
+  });
+
   app.delete('/notes/note/:id', function(req, res){
     const note = {};
     const id = req.params.id;
@@ -70,7 +85,7 @@ module.exports = function(app){
       res.location('/notes/note/' + resultado.insertId);
 
       res.status(201).json(note);
-    }
+      }
     });
 
   });
