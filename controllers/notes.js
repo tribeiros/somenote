@@ -29,7 +29,7 @@ module.exports = function(app){
 
     noteDao.atualiza(note, function(erro){
       if (erro){
-        res.status(500).send(erro);
+       ce res.status(500).send(erro);
         return;
       }
       console.log('note cancelado.')
