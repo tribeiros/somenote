@@ -1,7 +1,7 @@
 module.exports = function(app){
   app.get('/notes', function(req, res){
     console.log('Recebida requisicao de teste na porta 3000.')
-    res.send('OK.');
+    res.send('Ok.');
   });
 
 // view all rows on notes databes
