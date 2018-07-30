@@ -5,7 +5,7 @@ function createDBConnection(){
             host: 'localhost',
             user: 'usernameall',
             password: 'ThePassword',
-            database: 'notes'
+            database: 'vault'
         });
 }
 
